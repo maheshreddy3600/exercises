@@ -1,0 +1,268 @@
+SQL> create table CUSTOMER(custid number(10) primary key,
+  2  fname varchar(30),
+  3  lname varchar(30),
+  4  address varchar(50),
+  5  phoneno number(20) not null,
+  6  city varchar(20),
+  7  country varchar(20),
+  8  datefirstpurchase date,
+  9  supplierid number(20));
+
+Table created.
+
+SQL> insert into CUSTOMER values(
+  2  1001,'Das','Jeyaselan','119,park avenue,2 street',984109328,
+  3  'Coimbatore','India',
+  4  '10-Jan-04',1);
+
+1 row created.
+
+SQL> insert into CUSTOMER values(
+  2  2001,'Gopi','Govindraj',
+  3  '241, floor 1 kamraj street',
+  4  9444124590,
+  5  'Chennai',
+  6  'India',
+  7  '25-mar-05',5);
+
+1 row created.
+
+SQL> insert into CUSTOMER values(
+  2  1201,'dilip','kishore',
+  3  '3 2 avenue anna nagar',
+  4  9997234534,
+  5  'bangalore','India',
+  6  '20-aug-04',2);
+
+1 row created.
+
+SQL> insert into CUSTOMER values(
+  2  1300,'anand','chowdhury',
+  3  '42/1 sector 1,2 street',
+  4  98105438,
+  5  'bangalore','India',
+  6  '15-may-05',
+  7  2);
+
+1 row created.
+  6
+SQL> insert into CUSTOMER values(
+  2  1200,'chandra','nagarajan',
+  3  '83 lal bagh',
+  4  98410672356,
+  5  'bangalore','India',
+  6  '12-feb-06',
+  7  4);
+
+1 row created.
+
+SQL> insert into CUSTOMER values(
+  2  1221,'abhishek','kumar',
+  3  '13 kishori park',94447623901,
+  4  'chennai','India',
+  5  '15-may-04',1);
+
+1 row created.
+
+SQL> insert into CUSTOMER values(
+  2  1320,'nikhil',
+  3  'pandit',
+  4  '218 alwanya street',
+  5  94448923091,
+  6  'salem',
+  7  'India',
+  8  '21-apr-06',3);
+
+1 row created.
+
+SQL> insert into CUSTOMER values(
+  2  1222,'meenu','monica',
+  3  'c11 church road',
+  4  98410563421,
+  5  'trichy',
+  6  'India',
+  7  '30-aug-04',1);
+
+1 row created.
+
+SQL> insert into CUSTOMER values(
+  2  1225,'pavan','kumar',
+  3  '18/a north mada street',
+  4  9993782103,
+  5  'madurai',
+  6  'India',
+  7  '18-aug-04,4);
+ERROR:
+ORA-01756: quoted string not properly terminated
+
+
+SQL> insert into CUSTOMER values(
+  2  1225,'pavan','kumar',
+  3  '18/a north mada street',
+  4  9993782103,
+  5  'madurai',
+  6  'India',
+  7  '18-aug-04',4);
+
+1 row created.
+
+SQL> select *from CUSTOMER;
+
+    CUSTID FNAME                          LNAME
+---------- ------------------------------ ------------------------------
+ADDRESS                                               PHONENO
+-------------------------------------------------- ----------
+CITY                 COUNTRY              DATEFIRST SUPPLIERID
+-------------------- -------------------- --------- ----------
+      1001 Das                            Jeyaselan
+119,park avenue,2 street                            984109328
+Coimbatore           India                10-JAN-04          1
+
+      2001 Gopi                           Govindraj
+241, floor 1 kamraj street                         9444124590
+Chennai              India                25-MAR-05          5
+
+    CUSTID FNAME                          LNAME
+---------- ------------------------------ ------------------------------
+ADDRESS                                               PHONENO
+-------------------------------------------------- ----------
+CITY                 COUNTRY              DATEFIRST SUPPLIERID
+-------------------- -------------------- --------- ----------
+
+      1201 dilip                          kishore
+3 2 avenue anna nagar                              9997234534
+bangalore            India                20-AUG-04          2
+
+      1300 anand                          chowdhury
+42/1 sector 1,2 street                               98105438
+
+    CUSTID FNAME                          LNAME
+---------- ------------------------------ ------------------------------
+ADDRESS                                               PHONENO
+-------------------------------------------------- ----------
+CITY                 COUNTRY              DATEFIRST SUPPLIERID
+-------------------- -------------------- --------- ----------
+bangalore            India                15-MAY-05          2
+
+      1200 chandra                        nagarajan
+83 lal bagh                                        9.8411E+10
+bangalore            India                12-FEB-06          4
+
+      1221 abhishek                       kumar
+
+    CUSTID FNAME                          LNAME
+---------- ------------------------------ ------------------------------
+ADDRESS                                               PHONENO
+-------------------------------------------------- ----------
+CITY                 COUNTRY              DATEFIRST SUPPLIERID
+-------------------- -------------------- --------- ----------
+13 kishori park                                    9.4448E+10
+chennai              India                15-MAY-04          1
+
+      1320 nikhil                         pandit
+218 alwanya street                                 9.4449E+10
+salem                India                21-APR-06          3
+
+
+    CUSTID FNAME                          LNAME
+---------- ------------------------------ ------------------------------
+ADDRESS                                               PHONENO
+-------------------------------------------------- ----------
+CITY                 COUNTRY              DATEFIRST SUPPLIERID
+-------------------- -------------------- --------- ----------
+      1222 meenu                          monica
+c11 church road                                    9.8411E+10
+trichy               India                30-AUG-04          1
+
+      1225 pavan                          kumar
+18/a north mada street                             9993782103
+madurai              India                18-AUG-04          4
+
+    CUSTID FNAME                          LNAME
+---------- ------------------------------ ------------------------------
+ADDRESS                                               PHONENO
+-------------------------------------------------- ----------
+CITY                 COUNTRY              DATEFIRST SUPPLIERID
+-------------------- -------------------- --------- ----------
+
+
+9 rows selected.
+SQL> create table SUPPLIER(
+  2  supplierid number(10),
+  3  sname varchar(20),
+  4  scity varchar(20),
+  5  sphone number(10),
+  6  email varchar(50));
+
+Table created.
+
+SQL> insert into SUPPLIER values(
+  2  1,'dilip','chennai',
+  3  8999900000,
+  4  'dilip@abc.co.in');
+
+1 row created.
+
+SQL> insert into SUPPLIER values(
+  2  2,'tarun','madurai',
+  3  8999911111,
+  4  'tarun@xyz.com');
+
+1 row created.
+
+SQL> insert into SUPPLIER values(
+  2  3,'naresh','coimbatore',
+  3  8999922222,
+  4  'g.naresh@xyzl.com');
+
+1 row created.
+
+SQL> insert into SUPPLIER values(
+  2  4,'ganesan','trichy',
+  3  8999933333,
+  4  'ganesan_83@ijk.com');
+
+1 row created.
+
+
+
+SQL> CREATE TABLE ORDERS(
+     orderid number(10)primary key,
+  3  orderdate date,
+  4  custid number(10),
+  5  quantity number(10) check(quantity>0),
+  6  itemid number(10));
+
+Table created.
+
+SQL> insert into ORDERS values(
+  2  1,'12-JAN-04',
+  3  1001,30,25);
+
+1 row created.
+
+SQL> insert into ORDERS values(
+     2,'06-MAY-05',1202,38,24);
+
+1 row created.
+
+
+SQL> insert into ORDERS values(
+  2  3,'16-DEC-06',
+  3  1220,10,22);
+
+1 row created.
+
+SQL> insert into ORDERS values(
+     4,'21-MAY-0',1233,12,21);
+
+1 row created.
+
+SQL> SELECT *FROM ORDERS;
+
+   ORDERID ORDERDATE     CUSTID   QUANTITY     ITEMID
+---------- --------- ---------- ---------- ----------
+         1 12-JAN-04       1001         30         25
+           06-MAY-05       1202         38         24
+         3 16-DEC-06       1220         10         22
+         4 21-MAY-00       1233         12         21

@@ -1,0 +1,434 @@
+SQL> create table PROGRAMMER(EmpNo number(5) primary key,
+  2  LastName varchar(30) not null,
+  3  FirstName varchar(30) not null,
+  4  HireDate date,
+  5  ProjId varchar(20),
+  6  Language varchar(15),
+  7  TaskNo number(2),
+  8  Privilige varchar(25));
+
+Table created.
+
+SQL> desc PROGRAMMER;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                     NOT NULL NUMBER(5)
+ LASTNAME                                  NOT NULL VARCHAR2(30)
+ FIRSTNAME                                 NOT NULL VARCHAR2(30)
+ HIREDATE                                           DATE
+ PROJID                                             VARCHAR2(20)
+ LANGUAGE                                           VARCHAR2(15)
+ TASKNO                                             NUMBER(2)
+ PRIVILIGE                                          VARCHAR2(25)
+ 
+ 
+SQL> insert into PROGRAMMER values(390,
+  2  'Ghosh','Pinky','05-Jan-93',
+  3  'KCW','Java',11,
+  4  'Top Secret');
+
+1 row created.
+
+SQL> insert into PROGRAMMER values(201,
+  2  'Gupta','Saurav',
+  3  '01-Jan-95',
+  4  'NPR','VB',52,
+  5  'Secret');
+
+1 row created.
+
+SQL> insert into PROGRAMMER values(134,
+  2  'Chaudhury','Supriyo','15-Jul-95',
+  3  'TIPPS','C++',52,
+  4  'Secret');
+
+1 row created.
+
+SQL> insert into PROGRAMMER values(896,
+  2  'Jha','Ranjit','15-Jun-97',
+  3  'KCW','Java',10,
+  4  'Top Secret');
+
+1 row created.
+
+SQL> insert into PROGRAMMER values(789,
+  2  'Agarwal','Praveen','31-Aug-98',
+  3  'Rnc','VB',11,
+  4  'Secret');
+
+1 row created.
+
+
+SQL> insert into PROGRAMMER (EmpNo,
+  2  LastName,FirstName,
+  3  HireDate,ProjId,Language,TaskNo) values(345,'John','Peter',
+  4  '15-Nov-99','TIPPS',
+  5  'Java',52);
+
+1 row created.
+
+SQL> insert into PROGRAMMER values(563,
+  2  'Anderson','Andy',
+  3  '15-Aug-94','NITTS',
+  4  'C++',89,'Confidential');
+
+1 row created.
+
+SQL> create table WEATHER(City varchar(20),
+  2  State varchar(30) null,
+  3  High number(5),
+  4  Low number(5));
+
+Table created.
+
+SQL> select *from WEATHER;
+
+no rows selected
+
+SQL> insert into WEATHER values(
+  2  'Calcutta','West Bengal',
+  3  105,90);
+
+1 row created.
+
+SQL> insert into WEATHER values(
+  2  'Trivandrum','Kerala',
+  3  101,92);
+
+1 row created.
+
+SQL> insert into WEATHER values(
+  2  'Mumbai','Maharashtra',
+  3  88,69);
+
+1 row created.
+
+SQL> insert into WEATHER values(
+  2  'Bangalore','Karnataka',
+  3  77,60);
+
+1 row created.
+
+SQL> insert into WEATHER (City,High,Low) values(
+  2  'New Delhi',80,72);
+
+1 row created.
+
+SQL> select *from WEATHER;
+
+CITY                 STATE                                HIGH        LOW
+-------------------- ------------------------------ ---------- ----------
+Calcutta             West Bengal                           105         90
+Trivandrum           Kerala                                101         92
+Mumbai               Maharashtra                            88         69
+Bangalore            Karnataka                              77         60
+New Delhi
+
+SQL> create table BOOKS(
+  2  BookId number(10),
+  3  Title varchar(20),
+  4  TopicId varchar(20),
+  5  PublisherName varchar(30),
+  6  PlaceofPublication varchar(20),
+  7  Price number(10),
+  8  PurchaseDate date,
+  9  ShelfNo varchar(10));
+
+Table created.
+
+SQL> insert into BOOKS values(8293,
+  2  'DBMS','DB1',
+  3  'Prentice Hall',
+  4  'Mumbai',
+  5  255,'01-Jan-95','S11');
+
+1 row created.
+
+SQL> insert into BOOKS values(5645,
+  2  'DBMS','DB1',
+  3  'Pearson Education',
+  4  'Mumbai',
+  5  655,'05-Jan-93','S12');
+
+1 row created.
+
+SQL> insert into BOOKS values(
+  2  6565,'C','C1',
+  3  'TMH',
+  4  'Mumbai',
+  5  840,'31-Aug-98','S66');
+
+1 row created.
+
+
+SQL> insert into BOOKS values(
+  2  6567,'C++','Cplus1',
+  3  'ABC Publishers',
+  4  'Delhi',
+  5  300,'15-JUL-95',
+  6  'S77'
+  7  );
+
+1 row created.
+
+SQL> insert into BOOKS values(
+  2  4576,'JAVA','JAVA1',
+  3  'Guru Govind Pub',
+  4  'Delhi',
+  5  500,'15-jun-97','S87');
+
+1 row created.
+
+SQL> insert into BOOKS values(
+  2  3433,'OOPS','OOPS1',
+  3  'Dave Publishers',
+  4  'Pune',600,
+  5  '15-Nov-99','S56');
+
+1 row created.
+
+SQL> insert into BOOKS values(
+  2  4655,'SAD','SAD1',
+  3  'Sajan Publishers',
+  4  'Cochin',700,
+  5  '15-AUG-99','S76');
+
+1 row created.
+
+SQL> UPDATE PROGRAMMER SET ProjId='NITTS'
+  2  WHERE EmpNo=201;
+
+1 row updated.
+
+SQL> UPDATE PROGRAMMER SET Language='C++'
+  2  WHERE EmpNo=201;
+
+1 row updated.
+
+SQL> select *from PROGRAMMER;
+
+     EMPNO LASTNAME                       FIRSTNAME
+---------- ------------------------------ ------------------------------
+HIREDATE  PROJID               LANGUAGE            TASKNO
+--------- -------------------- --------------- ----------
+PRIVILIGE
+-------------------------
+       789 Agarwal                        Praveen
+31-AUG-98 Rnc                  VB                      11
+Secret
+
+       390 Ghosh                          Pinky
+05-JAN-93 KCW                  Java                    11
+Top Secret
+
+     EMPNO LASTNAME                       FIRSTNAME
+---------- ------------------------------ ------------------------------
+HIREDATE  PROJID               LANGUAGE            TASKNO
+--------- -------------------- --------------- ----------
+PRIVILIGE
+-------------------------
+
+       201 Gupta                          Saurav
+01-JAN-95 NITTS                C++                     52
+Secret
+
+       134 Chaudhury                      Supriyo
+15-JUL-95 TIPPS                C++                     52
+
+     EMPNO LASTNAME                       FIRSTNAME
+---------- ------------------------------ ------------------------------
+HIREDATE  PROJID               LANGUAGE            TASKNO
+--------- -------------------- --------------- ----------
+PRIVILIGE
+-------------------------
+Secret
+
+       896 Jha                            Ranjit
+15-JUN-97 KCW                  Java                    10
+Top Secret
+
+       345 John                           Peter
+
+     EMPNO LASTNAME                       FIRSTNAME
+---------- ------------------------------ ------------------------------
+HIREDATE  PROJID               LANGUAGE            TASKNO
+--------- -------------------- --------------- ----------
+PRIVILIGE
+-------------------------
+15-NOV-99 TIPPS                Java                    52
+
+
+       563 Anderson                       Andy
+15-AUG-94 NITTS                C++                     89
+Confidential
+
+
+7 rows selected.
+
+
+SQL> UPDATE BOOKS SET ShelfNo='S10'
+  2  WHERE Title='DBMS';
+
+2 rows updated.
+
+SQL> SELECT *FROM BOOKS;
+
+    BOOKID TITLE                TOPICID
+---------- -------------------- --------------------
+PUBLISHERNAME                  PLACEOFPUBLICATION        PRICE PURCHASED
+------------------------------ -------------------- ---------- ---------
+SHELFNO
+----------
+      8293 DBMS                 DB1
+Prentice Hall                  Mumbai                      255 01-JAN-95
+S10
+
+      5645 DBMS                 DB1
+Pearson Education              Mumbai                      655 05-JAN-93
+S10
+
+    BOOKID TITLE                TOPICID
+---------- -------------------- --------------------
+PUBLISHERNAME                  PLACEOFPUBLICATION        PRICE PURCHASED
+------------------------------ -------------------- ---------- ---------
+SHELFNO
+----------
+
+      6565 C                    C1
+TMH                            Mumbai                      840 31-AUG-98
+S66
+
+      6567 C++                  Cplus1
+ABC Publishers                 Delhi                       300 15-JUL-95
+
+    BOOKID TITLE                TOPICID
+---------- -------------------- --------------------
+PUBLISHERNAME                  PLACEOFPUBLICATION        PRICE PURCHASED
+------------------------------ -------------------- ---------- ---------
+SHELFNO
+----------
+S77
+
+      4576 JAVA                 JAVA1
+Guru Govind Pub                Delhi                       500 15-JUN-97
+S87
+
+      3433 OOPS                 OOPS1
+
+    BOOKID TITLE                TOPICID
+---------- -------------------- --------------------
+PUBLISHERNAME                  PLACEOFPUBLICATION        PRICE PURCHASED
+------------------------------ -------------------- ---------- ---------
+SHELFNO
+----------
+Dave Publishers                Pune                        600 15-NOV-99
+S56
+
+      4655 SAD                  SAD1
+Sajan Publishers               Cochin                      700 15-AUG-99
+S76
+
+
+7 rows selected.
+
+
+
+SQL> DELETE FROM PROGRAMMER WHERE EmpNo=134;
+
+1 row deleted.
+
+SQL> select *from PROGRAMMER;
+
+     EMPNO LASTNAME                       FIRSTNAME
+---------- ------------------------------ ------------------------------
+HIREDATE  PROJID               LANGUAGE            TASKNO
+--------- -------------------- --------------- ----------
+PRIVILIGE
+-------------------------
+       789 Agarwal                        Praveen
+31-AUG-98 Rnc                  VB                      11
+Secret
+
+       390 Ghosh                          Pinky
+05-JAN-93 KCW                  Java                    11
+Top Secret
+
+     EMPNO LASTNAME                       FIRSTNAME
+---------- ------------------------------ ------------------------------
+HIREDATE  PROJID               LANGUAGE            TASKNO
+--------- -------------------- --------------- ----------
+PRIVILIGE
+-------------------------
+
+       201 Gupta                          Saurav
+01-JAN-95 NITTS                C++                     52
+Secret
+
+       896 Jha                            Ranjit
+15-JUN-97 KCW                  Java                    10
+
+     EMPNO LASTNAME                       FIRSTNAME
+---------- ------------------------------ ------------------------------
+HIREDATE  PROJID               LANGUAGE            TASKNO
+--------- -------------------- --------------- ----------
+PRIVILIGE
+-------------------------
+Top Secret
+
+       345 John                           Peter
+15-NOV-99 TIPPS                Java                    52
+
+
+       563 Anderson                       Andy
+
+     EMPNO LASTNAME                       FIRSTNAME
+---------- ------------------------------ ------------------------------
+HIREDATE  PROJID               LANGUAGE            TASKNO
+--------- -------------------- --------------- ----------
+PRIVILIGE
+-------------------------
+15-AUG-94 NITTS                C++                     89
+Confidential
+
+
+6 rows selected.
+
+
+
+SQL> ALTER TABLE PROGRAMMER
+  2  DROP COLUMN TaskNo;
+
+Table altered.
+
+SQL> select *from PROGRAMMER;
+
+     EMPNO LASTNAME                       FIRSTNAME
+---------- ------------------------------ ------------------------------
+HIREDATE  PROJID               LANGUAGE        PRIVILIGE
+--------- -------------------- --------------- -------------------------
+       789 Agarwal                        Praveen
+31-AUG-98 Rnc                  VB              Secret
+
+       390 Ghosh                          Pinky
+05-JAN-93 KCW                  Java            Top Secret
+
+       201 Gupta                          Saurav
+01-JAN-95 NITTS                C++             Secret
+
+
+     EMPNO LASTNAME                       FIRSTNAME
+---------- ------------------------------ ------------------------------
+HIREDATE  PROJID               LANGUAGE        PRIVILIGE
+--------- -------------------- --------------- -------------------------
+       896 Jha                            Ranjit
+15-JUN-97 KCW                  Java            Top Secret
+
+       345 John                           Peter
+15-NOV-99 TIPPS                Java
+
+       563 Anderson                       Andy
+15-AUG-94 NITTS                C++             Confidential
+
+
+6 rows selected.
+
